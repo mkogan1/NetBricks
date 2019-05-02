@@ -8,4 +8,6 @@ else
     sudo x86_energy_perf_policy performance
 fi
 sudo $BASE_DIR/pmqos-static.py cpu_dma_latency=0 # Tune Linux QoS to reduce DMA latency
+sudo rdmsr -p 0 0x620
 sudo wrmsr -a 0x620 0x3f3f # Turn off uncore frequency scaling and select max frequency
+sudo rdmsr -p 0 0x620
